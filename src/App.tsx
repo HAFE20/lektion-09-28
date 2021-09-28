@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+	// state-variabel som kommer ihåg om det är light eller dark mode för tillfället
+	const [theme, setTheme] = useState('light')
+
+	const pickLightMode = () => { setTheme('light') }
+	const pickDarkMode = () => { setTheme('dark') }
+
+	return (
+		<div className={'app ' + theme}>
+			<h1> My awesome app </h1>
+			<p> Choose theme: </p>
+			<button onClick={pickLightMode}> Light </button>
+			<button onClick={pickDarkMode}> Dark </button>
+		</div>
+	);
 }
 
 export default App;
