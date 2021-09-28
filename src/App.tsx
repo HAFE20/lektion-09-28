@@ -5,6 +5,7 @@ import Button from './components/Button'
 const App = () => {
 	// state-variabel som kommer ihåg om det är light eller dark mode för tillfället
 	const [theme, setTheme] = useState<string>('light')
+	const [ghostContent, setGhostContent] = useState<string>('Second button')
 
 	const pickLightMode = () => { setTheme('light') }
 	const pickDarkMode = () => { setTheme('dark') }
@@ -18,7 +19,7 @@ const App = () => {
 
 			<hr />
 			<Button type="primary" content="First button" />
-			<Button type="ghost" content="Second button" />
+			<Button onClick={() => setGhostContent('Spooky!')} type="ghost" content={ghostContent} />
 		</div>
 	);
 }
